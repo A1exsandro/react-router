@@ -5,5 +5,20 @@
 }
 
 nav{
-  display: none;
+  font-size: 3rem;
+  align-self: start;
+  background-color: #2196f3;
+}
+
+.itemsMenu{
+  display: flex;
+}
+
+.itemsMenu div{
+  margin: 1rem;
+}
+
+a{
+  text-decoration: none;
+  color: white;
 }
