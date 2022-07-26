@@ -29,17 +29,35 @@ const Presence = () => {
     },
   ]);
 
+  const p_less = (card) => {
+    setCards(cards.map((item) => {
+      if(item.id === card.id){
+        return {...item, presence_less: item.presence_less + 1}
+      }
+      return item;
+    }))
+  }
+
+  const p_plus = (card) => {
+    setCards(cards.map((item) => {
+      if(item.id === card.id){
+        return {...item, presence_plus: item.presence_plus + 1}
+      }
+      return item;
+    }))
+  }
+
   return(
     <main>
       <div className="container">
         {
           cards.map((card, index) => (
             <div key={index} className="card">
-              <div className="avatar">{card.id}</div>
+              <div className="avatar">{index + 1}</div>
               <div className="info">
                 <div className="presence">
-                  <span className="presence less">{card.presence_less} Faltas </span>
-                  <span className="presence">{card.presence_plus} Presenças</span>
+                  <span onClick={() => p_less(card)} className="presence less">{card.presence_less} Faltas </span>
+                  <span onClick={() => p_plus(card)} className="presence">{card.presence_plus} Presenças</span>
                 </div>
                 {card.name}
               </div>
