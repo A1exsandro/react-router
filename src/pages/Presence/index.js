@@ -66,6 +66,30 @@ const Presence = () => {
         ))
         } 
       </div> 
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Presenças</th>
+              <th>Faltas</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              cards.map((tcard, index) =>(
+                <tr key={index}>
+                  <td>{tcard.id}</td>
+                  <td>{tcard.name}</td>
+                  <td>{tcard.presence_plus}</td>
+                  <td>{tcard.presence_less}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
     </main>
   );
 }
