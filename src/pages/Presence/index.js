@@ -78,12 +78,12 @@ const Presence = () => {
           </thead>
           <tbody>
             {
-              cards.map((tcard, index) =>(
+              cards.map((card, index) =>(
                 <tr key={index}>
-                  <td>{tcard.id}</td>
-                  <td>{tcard.name}</td>
-                  <td>{tcard.presence_plus}</td>
-                  <td>{tcard.presence_less}</td>
+                  <td>{card.id}</td>
+                  <td>{card.name}</td>
+                  <td>{card.presence_plus}</td>
+                  <td>{card.presence_less}</td>
                 </tr>
               ))
             }
