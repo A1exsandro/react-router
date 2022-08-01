@@ -6,13 +6,13 @@ const Presence = () => {
     {
       name: 'Alex',
       id: 1,
-      presence_less: 3,
+      presence_less: 0,
       presence_plus: 15
     },
     {
       name: 'Sandro',
       id: 2,
-      presence_less: 2,
+      presence_less: 0,
       presence_plus: 17
     },
     {
@@ -46,6 +46,8 @@ const Presence = () => {
       return item;
     }))
   }
+
+  console.log(cards);
 
   return(
     <main>

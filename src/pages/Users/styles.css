@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 15px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
