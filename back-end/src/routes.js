@@ -10,4 +10,9 @@ routes.post('/', (request, response) => {
   return response.status(201).json(dbTest);
 });
 
+//READ
+routes.get('/', (request, response) => {
+  return response.status(200).json(dbTest);
+});
+
 module.exports = routes;
