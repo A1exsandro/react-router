@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-import Blogs from "./pages/Blogs";
+import Users from "./pages/Users";
 import Presence from "./pages/Presence";
 import TicTacToe from "./pages/TicTacToe";
 
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
+          <Route path="users" element={<Users />} />
           <Route path="presence" element={<Presence />} />
           <Route path="tictactoe" element={<TicTacToe />} />
         </Route>
