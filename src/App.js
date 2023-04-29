@@ -7,6 +7,7 @@ import Presence from "./pages/Presence";
 import TicTacToe from "./pages/TicTacToe";
 
 import './App.css';
+import Words from './pages/Words';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="presence" element={<Presence />} />
           <Route path="tictactoe" element={<TicTacToe />} />
+          <Route path="words" element={<Words />} />
         </Route>
       </Routes>
     </BrowserRouter>    
