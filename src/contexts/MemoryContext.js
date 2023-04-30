@@ -7,29 +7,63 @@ export const MemoryContextProvider = (props) => {
   const [openCards, setOpenCards] = useState([])
   const [idFoundCards, setIdFoundCards] = useState([])
   const [idFoundPairsCards, setIdFoundPairsCards] = useState([]) 
-
-  const [numberOfShowCards, setNumberOfShowCards] = useState(0)
-  const [score, setScore] = useState(0)
-  const trying = 'Alexsandro'
+ 
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
+  const [players, setPlayers] = useState([
+    {
+      name: 'Alexsandro ',
+      score: 0,
+      current: false
+    },
+    {
+      name: 'Adriana ',
+      score: 0,
+      current: false
+    },
+    {
+      name: 'Kemilly ',
+      score: 0,
+      current: false
+    },
+    {
+      name: 'Alexia ',
+      score: 0,
+      current: false
+    }
+  ])
 
   const startGame = () => { 
     // setCards(loadCards)
   }
 
+  // TO CHECK IF THE CARDS ARE THE SAME
   const ids = [idFoundCards[0], idFoundCards[1]]
-
   const checkCards = (open1 = ids[0], open2 = ids[1]) => {
+    
     const nameOfId1 = cards.find(({ id, id2 }) => id === open1 || id2 === open1)?.nameImg
     const nameOfId2 = cards.find(({ id, id2 }) => id === open2 || id2 === open2)?.nameImg
    
-    if (nameOfId1 === nameOfId2) {
+    if (nameOfId1 === nameOfId2) { 
       setIdFoundPairsCards((prev) => [...prev, nameOfId1])
-    } 
+      setPlayers((prevPlayers) => {
+        const updatedPlayers = [...prevPlayers]
+        updatedPlayers[currentPlayerIndex] = {
+          ...prevPlayers[currentPlayerIndex],
+          score: prevPlayers[currentPlayerIndex].score + 0.5,
+        }
+        return updatedPlayers
+      })
+    } else {
+      if (currentPlayerIndex < 3) {
+        setCurrentPlayerIndex((amount) => amount + 0.5)
+      } else {
+        setCurrentPlayerIndex(0)
+      }
+    }
   }
 
   const showCard = ({ id, nameImg }) => {
-    // setNumberOfShowCards((amount) => amount + 1)
-
+    
     const turnedCard = idFoundCards.includes(id) || idFoundPairsCards.includes(nameImg)
     if (turnedCard) return
 
@@ -45,7 +79,7 @@ export const MemoryContextProvider = (props) => {
       checkCards()
       setIdFoundCards([])
     } 
-  }, 1000)
+  }, 2000)
 
   return (
     <MemoryContext.Provider value={{ 
@@ -59,8 +93,9 @@ export const MemoryContextProvider = (props) => {
       startGame, 
       cards,
       setCards,
-      ids,
-      trying 
+      ids, 
+      players,
+      currentPlayerIndex
     }}>
       {props.children}
     </MemoryContext.Provider>
