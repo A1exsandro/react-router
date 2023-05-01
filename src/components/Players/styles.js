@@ -7,6 +7,9 @@ export const ContainerPlayers = styled.div`
   background-color: black;
   color: white;
   width: 90%;
-  height: 2rem;
+  height: 3.5rem;
   border-radius: 0 0 20px 20px;
+
+  font-size: 3rem;
+  font-weight: bold;
 `

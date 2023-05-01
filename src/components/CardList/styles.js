@@ -5,6 +5,6 @@ export const CardListContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   gap: 1rem;
 `
