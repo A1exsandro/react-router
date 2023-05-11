@@ -32,10 +32,6 @@ export const MemoryContextProvider = (props) => {
     }
   ])
 
-  const startGame = () => { 
-    // setCards(loadCards)
-  }
-
   // TO CHECK IF THE CARDS ARE THE SAME
   const ids = [idFoundCards[0], idFoundCards[1]]
   const checkCards = (open1 = ids[0], open2 = ids[1]) => {
@@ -61,6 +57,25 @@ export const MemoryContextProvider = (props) => {
       }
     }
   }
+
+  // SHUFFLECARDS
+  // const shuffleCards = (cards) => {
+  //   for (let i = cards.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [cards[i], cards[j]] = [cards[j], cards[i]];
+  //   }
+  //   return cards;
+  // }
+
+  // const startGame = () => { 
+  //   // setCards(loadCards)
+  //   const shuffledCards = shuffleCards(cards)
+  //   setCards(shuffledCards)
+  // }
+
+  useEffect(() => {
+    // startGame()
+  })
 
   const showCard = ({ id, nameImg }) => {
     
@@ -89,8 +104,7 @@ export const MemoryContextProvider = (props) => {
       setIdFoundCards,
       idFoundPairsCards,
       setIdFoundPairsCards,
-      showCard,
-      startGame, 
+      showCard,  
       cards,
       setCards,
       ids, 

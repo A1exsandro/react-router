@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import Webcam from "react-webcam"
+// import Webcam from "react-webcam"
 
 import { getStorage } from '../../services/Firebase'
 import { ref, getDownloadURL } from "firebase/storage" 
@@ -43,7 +43,7 @@ const Home = () => {
   const [sounds, setSounds] = useState([])
 
   const promises = data.map((dt) => (
-    getDownloadURL(ref(storage, `images/${dt}.jpeg`))
+    getDownloadURL(ref(storage, `memoryImages/${dt}.jpeg`))
   ))
   
   const audioPromises = data.map((dt) => (
@@ -71,7 +71,7 @@ const Home = () => {
   return(
     <>
       <div>Home</div>
-      <Webcam />
+      {/* <Webcam /> */}
     </>
   );
 }

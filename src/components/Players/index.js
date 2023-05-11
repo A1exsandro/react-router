@@ -8,10 +8,10 @@ const Players = () => {
 	return (
 		<ContainerPlayers>
       {
-				players.map((player) => 
-					<div>{player.name} : {player.score}</div>
-				)
-			}
+        players.map((player) => 
+          <div>{player.name} : {player.score}</div>
+        )
+      }
     </ContainerPlayers>
 	)
 }
