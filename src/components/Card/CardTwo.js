@@ -18,12 +18,10 @@ const CardTwo = ({ id2, nameImg, linkSound }) => {
   } 
 
 	const handleClick = () => { 
-    playAudio()
-    showCard({ id, nameImg })
-    
-    if (flipped) {
-      
+    if (idFoundCards.length < 2) {
+      playAudio()
     }
+    showCard({ id, nameImg }) 
 	}   
 
 	return (
@@ -42,8 +40,7 @@ const CardTwo = ({ id2, nameImg, linkSound }) => {
         </audio>
 			</div>
 
-      <div className="card-face card-back">
-        <h2>Back</h2>
+      <div className="card-face card-back"> 
         
         <audio ref={audioRef}>
           <source src={linkSound} />

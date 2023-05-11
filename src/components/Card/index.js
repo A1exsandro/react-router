@@ -4,7 +4,7 @@ import { useMemory } from "../../contexts/MemoryContext"
 import './styles.css'
 
 const Card = ({ id, nameImg, linkImg, linkSound }) => {
-  const { showCard, idFoundCards, idFoundPairsCards} = useMemory() 
+  const { showCard, idFoundCards, idFoundPairsCards, players, currentPlayerIndex} = useMemory() 
 	const [hovered, setHovered] = useState(false)
   const audioRef = useRef()
 
@@ -17,10 +17,15 @@ const Card = ({ id, nameImg, linkImg, linkSound }) => {
   }  
 
 	const handleClick = () => { 
-    playAudio()
+    if (idFoundCards.length < 2) {
+      playAudio()
+    }
    
     showCard({ id, nameImg })
-	}     
+	} 
+  
+  console.log(players.length)
+  console.log(currentPlayerIndex)
    
 	return (
 		<div
@@ -39,8 +44,7 @@ const Card = ({ id, nameImg, linkImg, linkSound }) => {
         </audio>
 			</div>
 
-      <div className="card-face card-back">
-         <h2>Back</h2>
+      <div className="card-face card-back"> 
          <audio ref={audioRef}>
           <source src={linkSound} />
         </audio>
