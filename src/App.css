@@ -27,7 +27,11 @@ nav{
   align-items: start;  
   padding: 1rem;
   position: absolute;
-  background-color: rgb(32, 32, 24);
+  background-color: #2196f3;
+}
+
+.itemsMenu.none {
+  display: none;
 }
 
 .itemsMenu div{
