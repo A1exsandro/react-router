@@ -13,7 +13,7 @@ const Layout = () => {
     return (
       <>
         <nav>
-          <div onClick={toggleMenu}>Menu</div>
+          <div className="menu" onClick={toggleMenu}>Menu</div>
         </nav>
         
         <div className={`itemsMenu ${none ? "" : "none"}`}>
