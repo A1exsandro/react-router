@@ -1,6 +1,6 @@
 .card-memory {
-  width: 150px;
-  height: 200px; 
+  width: 8vw;
+  height: 15vh; 
   perspective: 1000px;
   transition: transform 0.6s;
   transform-style: preserve-3d;
