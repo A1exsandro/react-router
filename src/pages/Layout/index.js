@@ -17,6 +17,7 @@ const Layout = () => {
         </nav>
         
         <div className={`itemsMenu ${none ? "" : "none"}`}>
+        <div onClick={toggleMenu}><Link to="/login">Login</Link></div>
           <div onClick={toggleMenu}><Link to="/">Home</Link></div>
           <div onClick={toggleMenu}><Link to="/users">Users</Link></div>
           <div onClick={toggleMenu}><Link to="/presence">Presence</Link></div>

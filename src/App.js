@@ -8,6 +8,7 @@ import TicTacToe from "./pages/TicTacToe";
 
 import './App.css';
 import Words from './pages/Words';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="users" element={<Users />} />
           <Route path="presence" element={<Presence />} />
           <Route path="tictactoe" element={<TicTacToe />} />
