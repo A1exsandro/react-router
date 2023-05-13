@@ -6,10 +6,13 @@ import {
 	createUserWithEmailAndPassword 
 } from "firebase/auth"
 import { auth } from "../../services/Firebase"
+import { useUserContex } from "../../contexts/UserContext"
 
 const Login = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+
+	const { setInfoUser } = useUserContex()
 
 	const { register, handleSubmit, formState: { errors } } = useForm()
   const onSubmit = login => {
@@ -41,10 +44,9 @@ const Login = () => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     // The signed-in user info.
-		console.log(token)
     const user = result.user;
     // IdP data available using getAdditionalUserInfo(result)
-		console.log(user)
+		setInfoUser(user)
     // ...
   }).catch((error) => {
     // Handle Errors here.
