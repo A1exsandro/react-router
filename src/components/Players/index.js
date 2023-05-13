@@ -1,15 +1,18 @@
 import { useMemory } from "../../contexts/MemoryContext"
-import { ContainerPlayers } from "./styles"
+import { ContainerPlayers, ShowPlayers } from "./styles"
 
 const Players = () => {
 	const { players } = useMemory()
-	
 
 	return (
 		<ContainerPlayers>
       {
-        players.map((player) => 
-          <div>{player.name} : {player.score}</div>
+        players.map((player, i) => 
+          <ShowPlayers
+            key={i} 
+          >
+            {player.name} : {player.score}
+          </ShowPlayers>
         )
       }
     </ContainerPlayers>

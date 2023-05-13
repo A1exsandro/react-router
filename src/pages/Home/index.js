@@ -35,7 +35,7 @@ const data = [
   'plant',
   'tired'
 ] 
-console.log('here in cards')
+// console.log('here in cards')
 
 const Home = () => {
   const { cards } = useMemory()
@@ -43,7 +43,7 @@ const Home = () => {
   const [sounds, setSounds] = useState([])
 
   const promises = data.map((dt) => (
-    getDownloadURL(ref(storage, `memoryImages/${dt}.jpeg`))
+    getDownloadURL(ref(storage, `images/${dt}.jpeg`))
   ))
   
   const audioPromises = data.map((dt) => (

@@ -21,3 +21,6 @@ export const ContainerPlayers = styled.div`
     font-size: 1rem;
   }
 `
+export const ShowPlayers = styled.div` 
+  color: ${props => props.ref && "red"};
+`

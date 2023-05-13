@@ -7,19 +7,21 @@ const Users = () => {
   const onSubmit = data => console.log(data);
 
   return(
-    <div className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Nome
-          <input {...register("name")} />
-        </label>
-        <label>
-          Idade
-          <input {...register("age")} />
-        </label>
-        <input type="submit" />
-      </form>
-    </div>
+    <>
+      <div className="container">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label>
+            Nome
+            <input {...register("name")} />
+          </label>
+          <label>
+            Idade
+            <input {...register("age")} />
+          </label>
+          <input type="submit" />
+        </form>
+      </div>
+    </>
   );
 }
 

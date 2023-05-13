@@ -16,13 +16,14 @@ body{
 
 nav{  
   display: flex;
+  justify-content: space-between;
   font-size: 2rem; 
+  padding: 0 1rem 0 1rem;
   background-color: #2196f3;
 }
 
 .menu { 
-  color: white;
-  padding: 0 1rem 0 1rem;
+  color: white; 
 }
 
 .menu:hover {
@@ -55,7 +56,27 @@ a{
 }
 
 .currentPlayers {
-  padding-left: 25rem; 
   font-size: 3rem;
   font-weight: bold;
+}
+
+/* INFO USER */
+.infoUser {
+  display: flex;
+  align-items: center;
+  color: white; 
+  font-size: 1rem;
+}
+
+.avatarUser { 
+  width: 2rem;
+  height: 2rem;
+  background-color: blueviolet;
+  border-radius: 50%;
+  margin-left: .5rem;
+}
+
+.avatarUser img {
+  width: 100%;
+  border-radius: 50%;
 }

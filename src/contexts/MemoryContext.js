@@ -13,7 +13,7 @@ export const MemoryContextProvider = (props) => {
     {
       name: 'Alexsandro ',
       score: 0,
-      current: false
+      current: true
     },
     {
       name: 'Adriana ',

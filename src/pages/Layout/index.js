@@ -12,12 +12,14 @@ const Layout = () => {
     setNone(!none)
   }
 
-  console.log('Layout', infoUser.displayName)
+  // console.log('Layout', infoUser.displayName)
   
   return (
     <>
       <nav>
         <div className="menu" onClick={toggleMenu}>Menu</div> 
+
+        {/* <div className="currentPlayers">{players[currentPlayerIndex].name} : {players[currentPlayerIndex].score}</div> */}
 
         <div className="infoUser">
           <div>{infoUser.displayName}</div>
@@ -34,7 +36,6 @@ const Layout = () => {
         <div onClick={toggleMenu}><Link to="/presence">Presence</Link></div>
         <div onClick={toggleMenu}><Link to="/tictactoe">Jogo da Velha</Link></div>
         <div onClick={toggleMenu}><Link to="/words">Memory Game</Link></div>
-        {/* <div className="currentPlayers">{players[currentPlayerIndex].name} : {players[currentPlayerIndex].score}</div> */}
       </div>
 
       <Outlet />
