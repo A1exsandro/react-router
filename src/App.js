@@ -1,28 +1,41 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Users from "./pages/Users";
-import Presence from "./pages/Presence";
-import TicTacToe from "./pages/TicTacToe";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { useUserContex } from './contexts/UserContext'
 
-import './App.css';
-import Words from './pages/Words';
-import Login from './pages/Login';
+import './App.css'
+
+import Layout from "./pages/Layout"
+import Home from "./pages/Home"
+import Users from "./pages/Users"
+import Presence from "./pages/Presence"
+import TicTacToe from "./pages/TicTacToe"
+import Words from './pages/Words'
+import Login from './pages/Login'
+
 
 function App() {
+  const { infoUser } = useUserContex()
+
   return (
-    <BrowserRouter>
+    <BrowserRouter> 
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/presence" element={<Presence />} />
-          <Route path="/tictactoe" element={<TicTacToe />} />
-          <Route path="/words" element={<Words />} />
-        </Route>
-      </Routes>
+        {
+          infoUser == null ?
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/login" element={<Login />} />
+          </Route>
+          :
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/presence" element={<Presence />} />
+            <Route path="/tictactoe" element={<TicTacToe />} />
+            <Route path="/words" element={<Words />} /> 
+          </Route>
+        }
+      </Routes> 
     </BrowserRouter>    
   );
 }
