@@ -12,7 +12,7 @@ const Layout = () => {
     setNone(!none)
   }
 
-  // console.log('Layout', infoUser.displayName)
+  console.log('Layout', infoUser)
   
   return (
     <>
@@ -22,9 +22,9 @@ const Layout = () => {
         {/* <div className="currentPlayers">{players[currentPlayerIndex].name} : {players[currentPlayerIndex].score}</div> */}
 
         <div className="infoUser">
-          <div>{infoUser.displayName}</div>
+          <div>{infoUser?.displayName}</div>
           <div className="avatarUser">
-            <img src={infoUser.photoURL}/>
+            <img src={infoUser?.photoURL}/>
           </div>
         </div>
       </nav>
