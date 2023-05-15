@@ -14,7 +14,8 @@ export const ContainerHeader = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   opacity: 1;
-  visibility: ${props => props.hiddenHeader && "hidden"};;
+  visibility: ${props => props.hiddenHeader && "hidden"};
+  z-index: 4;
 
   /* .open {
     opacity: 1;
