@@ -24,6 +24,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/words" element={<Words />} /> 
           </Route>
           :
           <Route path="/" element={<Layout />}>
@@ -32,7 +33,6 @@ function App() {
             <Route path="/users" element={<Users />} />
             <Route path="/presence" element={<Presence />} />
             <Route path="/tictactoe" element={<TicTacToe />} />
-            <Route path="/words" element={<Words />} /> 
           </Route>
         }
       </Routes> 

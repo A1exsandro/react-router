@@ -5,8 +5,8 @@ import CardTwo from "../Card/CardTwo"
 import { CardListContainer } from "./styles"
 
 const CardList = () => { 
-  const { cards, idFoundPairsCards, idFoundCards  } = useMemory() 
-  const [newCards, setNewCards] = useState([])
+  const { cards, loading, setLoading, setShuffle, shuffle } = useMemory() 
+  const [newCards, setNewCards] = useState([{}])
 
   useEffect(() => {
     const shuffleCards = (cards) => {
@@ -26,19 +26,35 @@ const CardList = () => {
     };
   
     setNewCards(shuffleCards(cards));
-  }, []);
- 
-  return (
-    <CardListContainer> 
-      {newCards.map((card) => (
-        <Card key={card.id} {...card} /> 
-      ))}
+  }, [shuffle]); 
 
-      {newCards.map((card) => ( 
-          <CardTwo key={card.id2} {...card} />
-        ))} 
-    </CardListContainer>
+ console.log('newCards', newCards)
+
+ const handleClick = () => {
+  setLoading(false)
+}
+
+console.log('cards', cards)
+
+  return (
+    loading ? (
+      <div>
+        <button onClick={handleClick}>Iniciar o Jogo</button> 
+        <button onClick={() => setShuffle(!shuffle)}>Embaralhar</button>
+      </div>
+    ) : (
+      <CardListContainer> 
+        {newCards.map((card) => (
+          <Card key={card.id} {...card} /> 
+        ))}
+  
+        {newCards.map((card) => ( 
+            <CardTwo key={card.id2} {...card} />
+          ))} 
+      </CardListContainer>
+    )
   );
 };
 
 export default CardList
+

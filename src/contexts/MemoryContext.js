@@ -4,6 +4,8 @@ const MemoryContext = createContext({})
 
 export const MemoryContextProvider = (props) => { 
   const [cards, setCards] = useState([{}])
+  const [loading, setLoading] = useState(true)
+  const [shuffle, setShuffle] = useState(false)
   const [openCards, setOpenCards] = useState([])
   const [idFoundCards, setIdFoundCards] = useState([])
   const [idFoundPairsCards, setIdFoundPairsCards] = useState([]) 
@@ -109,7 +111,11 @@ export const MemoryContextProvider = (props) => {
       setCards,
       ids, 
       players,
-      currentPlayerIndex
+      currentPlayerIndex, 
+      loading,
+      setLoading,
+      shuffle,
+      setShuffle, 
     }}>
       {props.children}
     </MemoryContext.Provider>

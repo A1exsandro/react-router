@@ -23,9 +23,6 @@ const Card = ({ id, nameImg, linkImg, linkSound }) => {
    
     showCard({ id, nameImg })
 	} 
-  
-  console.log(players.length)
-  console.log(currentPlayerIndex)
    
 	return (
 		<div
