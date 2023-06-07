@@ -10,8 +10,7 @@ body{
   margin: 0; 
   padding: 0;
   box-sizing: border-box;
-  background-color: blueviolet;
-  width: 100vw;
+  background-color: blueviolet; 
 }
 
 nav{  
@@ -35,7 +34,7 @@ nav{
 .itemsMenu{  
   display: flex; 
   flex-direction: column;
-  align-items: start;  
+  align-items: flex-start;  
   padding: 1rem;
   position: absolute;
   background-color: #2196f3;

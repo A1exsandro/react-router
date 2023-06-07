@@ -5,7 +5,7 @@ import CardTwo from "../Card/CardTwo"
 import { CardListContainer } from "./styles"
 
 const CardList = () => { 
-  const { cards, loading, setLoading, setShuffle, shuffle } = useMemory() 
+  const { cards, loading, setLoading } = useMemory() 
   const [newCards, setNewCards] = useState([{}])
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const CardList = () => {
     };
   
     setNewCards(shuffleCards(cards));
-  }, [shuffle]); 
+  }, [cards]); 
 
  console.log('newCards', newCards)
 
@@ -38,10 +38,7 @@ console.log('cards', cards)
 
   return (
     loading ? (
-      <div>
-        <button onClick={handleClick}>Iniciar o Jogo</button> 
-        <button onClick={() => setShuffle(!shuffle)}>Embaralhar</button>
-      </div>
+      <button onClick={handleClick}>Iniciar o Jogo</button> 
     ) : (
       <CardListContainer> 
         {newCards.map((card) => (
