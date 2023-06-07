@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body{  
   margin: 0;
   padding: 0;
@@ -13,13 +17,13 @@ body{
   background-color: blueviolet; 
 }
 
-nav{  
+/* nav{  
   display: flex;
   justify-content: space-between;
   font-size: 2rem; 
   padding: 0 1rem 0 1rem;
   background-color: #2196f3;
-}
+} */
 
 .menu { 
   color: white; 
