@@ -1,19 +1,21 @@
 import React, { useState } from "react" 
+import { useForm } from "react-hook-form"
 
 const Notes = () => { 
-  const [notes, setNotes] = useState() 
+  // const [notes, setNotes] = useState() 
   const [showForm, setShowForm] = useState(false)
   const [flipped, setFlipped] = useState(true)
   const [addNotes, setAddNotes] = useState([ ]) 
+
+  const { register, handleSubmit, formState: { errors } } = useForm()
   
   const handleClick = () => {
     setShowForm(true)
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-
-    setAddNotes((prev) => [...prev, notes])
+  const onSubmit = ( data ) => { 
+    console.log(data)
+    setAddNotes((prev) => [...prev, data])
     setShowForm(false)
   }
 
@@ -35,17 +37,24 @@ const Notes = () => {
         {/* ******************* FORM *************************** */}
         <form 
           className={`${showForm ? 'flex flex-col' : 'hidden'} bg-slate-800 p-2 rounded-md m-2`} 
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
         >
-            <label>
-              <div className="text-center mb-2">Enter your notes</div>
+            <label className="flex flex-col text-center mb-2">
+              Enter your notes 
               <input 
                 className="rounded-md mb-2"
-                type="text"  
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
+                {...register("frontNotes")}
               />
             </label> 
+
+            <label className="flex flex-col text-center mb-2">
+              Enter your notes 
+              <input 
+                className="rounded-md mb-2"
+                {...register("backNotes")}
+              />
+            </label>
+
             <input 
               className="hover:bg-slate-700 cursor-pointer rounded-md"
               type="submit" 
@@ -61,11 +70,11 @@ const Notes = () => {
               onClick={handleFlip}
             > 
               <div className="card-face card-front">
-                {notes}   
+                {notes.frontNotes}   
               </div>
 
               <div className="card-face card-back"> 
-                back Card
+                {notes.backNotes} 
               </div>
             </div>
           ))
