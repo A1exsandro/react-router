@@ -86,7 +86,7 @@ footer{
   color: var(--E-color);
 }
 
-button{
+/* button{
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 5px;
@@ -94,4 +94,4 @@ button{
   background-color: var(--green);
   color: white;
   font-size: 1.2rem;
-}
+} */

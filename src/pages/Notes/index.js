@@ -1,10 +1,10 @@
 import React, { useState } from "react" 
 import { useForm } from "react-hook-form"
+import CardOfNotes from "../../components/CardOfNotes"
 
-const Notes = () => { 
-  // const [notes, setNotes] = useState() 
+const Notes = () => {  
   const [showForm, setShowForm] = useState(false)
-  const [flipped, setFlipped] = useState(true)
+  
   const [addNotes, setAddNotes] = useState([ ]) 
 
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -19,10 +19,7 @@ const Notes = () => {
     setShowForm(false)
   }
 
-  const handleFlip = () => {
-    setFlipped(!flipped)
-  } 
-
+  
   return(
     <>
       <button
@@ -31,12 +28,10 @@ const Notes = () => {
       >
         Add Notes
       </button>
-      
-      <div className="flex justify-center"> 
 
-        {/* ******************* FORM *************************** */}
-        <form 
-          className={`${showForm ? 'flex flex-col' : 'hidden'} bg-slate-800 p-2 rounded-md m-2`} 
+       {/* ******************* FORM *************************** */}
+       <form 
+          className={`${showForm ? 'flex' : 'hidden'} justify-around bg-slate-800 rounded-md m-2`} 
           onSubmit={handleSubmit(onSubmit)}
         >
             <label className="flex flex-col text-center mb-2">
@@ -56,27 +51,21 @@ const Notes = () => {
             </label>
 
             <input 
-              className="hover:bg-slate-700 cursor-pointer rounded-md"
+              className="hover:bg-slate-700 cursor-pointer px-2 rounded-md"
               type="submit" 
             />
         </form> 
+      
+      <div className="flex flex-wrap justify-center gap-2">  
 
         {/* ******************* CARDS OF NOTES *************************** */}
         {
           addNotes.map((notes, i) => (
-            <div
-            key={i}
-              className={`card-memory ${flipped ? "" : "flipped"}`} 
-              onClick={handleFlip}
-            > 
-              <div className="card-face card-front">
-                {notes.frontNotes}   
-              </div>
-
-              <div className="card-face card-back"> 
-                {notes.backNotes} 
-              </div>
-            </div>
+            <CardOfNotes 
+              key={i}
+              front={notes.frontNotes}
+              back={notes.backNotes}
+            />
           ))
         }
       </div>
