@@ -2,8 +2,9 @@ import React, { useState } from "react"
 
 const Notes = () => { 
   const [notes, setNotes] = useState() 
-  const [valor, setValor] = useState() 
   const [showForm, setShowForm] = useState(false)
+  const [flipped, setFlipped] = useState(true)
+  const [addNotes, setAddNotes] = useState([ ]) 
   
   const handleClick = () => {
     setShowForm(true)
@@ -12,11 +13,13 @@ const Notes = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    setValor(notes)
+    setAddNotes((prev) => [...prev, notes])
     setShowForm(false)
   }
 
-  const trocastyle = true
+  const handleFlip = () => {
+    setFlipped(!flipped)
+  } 
 
   return(
     <>
@@ -28,8 +31,10 @@ const Notes = () => {
       </button>
       
       <div className="flex justify-center"> 
+
+        {/* ******************* FORM *************************** */}
         <form 
-          className={`${showForm ? 'flex flex-col' : 'hidden'} bg-slate-800 p-2 rounded-md text-white m-2`} 
+          className={`${showForm ? 'flex flex-col' : 'hidden'} bg-slate-800 p-2 rounded-md m-2`} 
           onSubmit={handleSubmit}
         >
             <label>
@@ -46,6 +51,25 @@ const Notes = () => {
               type="submit" 
             />
         </form> 
+
+        {/* ******************* CARDS OF NOTES *************************** */}
+        {
+          addNotes.map((notes, i) => (
+            <div
+            key={i}
+              className={`card-memory ${flipped ? "" : "flipped"}`} 
+              onClick={handleFlip}
+            > 
+              <div className="card-face card-front">
+                {notes}   
+              </div>
+
+              <div className="card-face card-back"> 
+                back Card
+              </div>
+            </div>
+          ))
+        }
       </div>
     </>
   ) 
