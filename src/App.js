@@ -12,6 +12,7 @@ import TicTacToe from "./pages/TicTacToe"
 import Words from './pages/Words'
 import Login from './pages/Login'
 import Notes from './pages/Notes'
+import LayoutNotes from './pages/LayoutNotes'
 
 
 function App() {
@@ -26,11 +27,12 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/presence" element={<Presence />} />
           <Route path="/tictactoe" element={<TicTacToe />} />
-          <Route path="/words" element={<Words />} />
-          <Route path="notes" element={<Notes />} /> 
+          <Route path="/words" element={<Words />} />  
         </Route> 
-        {/* <Route path="/" element={<Layout />}>  
-        </Route>  */}
+        
+        <Route path="/notes" element={<LayoutNotes />}> 
+          <Route path="/notes" element={<Notes />} /> 
+        </Route> 
       </Routes> 
     </BrowserRouter>    
   );
