@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { useUserContex } from './contexts/UserContext'
+// import { useUserContex } from './contexts/UserContext'
 
 import './App.css'
 
@@ -11,30 +11,26 @@ import Presence from "./pages/Presence"
 import TicTacToe from "./pages/TicTacToe"
 import Words from './pages/Words'
 import Login from './pages/Login'
+import Notes from './pages/Notes'
 
 
 function App() {
-  const { infoUser } = useUserContex()
+  // const { infoUser } = useUserContex()
 
   return (
     <BrowserRouter> 
-      <Routes>
-        {
-          infoUser == null ?
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/words" element={<Words />} /> 
-          </Route>
-          :
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/presence" element={<Presence />} />
-            <Route path="/tictactoe" element={<TicTacToe />} />
-          </Route>
-        }
+      <Routes>  
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/presence" element={<Presence />} />
+          <Route path="/tictactoe" element={<TicTacToe />} />
+          <Route path="/words" element={<Words />} />
+          <Route path="notes" element={<Notes />} /> 
+        </Route> 
+        {/* <Route path="/" element={<Layout />}>  
+        </Route>  */}
       </Routes> 
     </BrowserRouter>    
   );

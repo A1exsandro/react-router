@@ -36,6 +36,7 @@ const Layout = () => {
         <div onClick={toggleMenu}><Link to="/presence">Presence</Link></div>
         <div onClick={toggleMenu}><Link to="/tictactoe">Jogo da Velha</Link></div>
         <div onClick={toggleMenu}><Link to="/words">Memory Game</Link></div>
+        <div onClick={toggleMenu}><Link to="/notes">Notes</Link></div>
       </div>
 
       <Outlet />
