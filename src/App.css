@@ -13,8 +13,7 @@ body{
   height: 100vh;
   margin: 0; 
   padding: 0;
-  box-sizing: border-box;
-  background-color: blueviolet; 
+  box-sizing: border-box; 
 }
 
 /* nav{  
@@ -25,17 +24,17 @@ body{
   background-color: #2196f3;
 } */
 
-.menu { 
+/* .menu { 
   color: white; 
-}
+} */
 
-.menu:hover {
+/* .menu:hover {
   cursor: pointer;
   color: rgb(82, 102, 216);
   background-color: #59a8e9;
-}
+} */
 
-.itemsMenu{  
+/* .itemsMenu{  
   display: flex; 
   flex-direction: column;
   align-items: flex-start;  
@@ -43,9 +42,9 @@ body{
   position: absolute;
   background-color: #2196f3;
   z-index: 4;
-}
+} */
 
-.itemsMenu.none {
+/* .itemsMenu.none {
   display: none;
 }
 
@@ -56,15 +55,15 @@ body{
 a{
   text-decoration: none;
   color: white;
-}
-
+} */
+/* 
 .currentPlayers {
   font-size: 3rem;
   font-weight: bold;
-}
+} */
 
 /* INFO USER */
-.infoUser {
+/* .infoUser {
   display: flex;
   align-items: center;
   color: white; 
@@ -82,4 +81,4 @@ a{
 .avatarUser img {
   width: 100%;
   border-radius: 50%;
-}
+} */

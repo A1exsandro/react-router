@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form"
 import CardOfNotes from "../../components/CardOfNotes"
 
 const Notes = () => {  
-  const [showForm, setShowForm] = useState(false)
-  
+  const [showForm, setShowForm] = useState(false) 
   const [addNotes, setAddNotes] = useState([ ]) 
 
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -56,9 +55,8 @@ const Notes = () => {
             />
         </form> 
       
-      <div className="flex flex-wrap justify-center gap-2">  
-
-        {/* ******************* CARDS OF NOTES *************************** */}
+      {/* ******************* CARDS OF NOTES *************************** */}
+      <div className="flex flex-wrap justify-center gap-2">   
         {
           addNotes.map((notes, i) => (
             <CardOfNotes 

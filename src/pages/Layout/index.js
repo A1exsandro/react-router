@@ -10,9 +10,11 @@ const Layout = () => {
     setNone(!none)
   }  
 
+  console.log(infoUser)
+
   return (
     <>
-      <nav className="flex bg-black">
+      <nav className="flex justify-between items-center bg-black">
         <div 
           className="bg-black text-white px-5 py-2 hover:bg-slate-500
           hover:cursor-pointer" 
@@ -21,10 +23,13 @@ const Layout = () => {
           Menu
         </div>  
         
-        <div className="bg-orange-400">
-          <div>{infoUser?.displayName}</div>
-          <div className="bg-orange-400">
-            <img src={infoUser?.photoURL}/>
+        <div className="flex items-center py-1">
+          <div className="text-orange-500 ">{infoUser?.displayName}</div>
+          <div className=" ">
+            <img 
+              src={infoUser?.photoURL} 
+              className="mx-4 bg-orange-500 rounded-full h-12"
+            />
           </div>
         </div>
       </nav>

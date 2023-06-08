@@ -1,15 +1,15 @@
-:root{
+/* :root{
   --O-color: #2196f3;
   --X-color: red;
   --E-color: #555;
   --green: #4caf50;
 }
 
-/* *{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 .container{
   display: flex;
@@ -24,7 +24,7 @@
   justify-content: space-between;
   color: white;
   font-weight: bold;
-  /* background-color: var(--O-color); */
+  background-color: var(--O-color);
   background-color: black;
   height: 5rem;
   width: 30rem;
@@ -74,4 +74,4 @@
   height: 5rem;
   width: 4rem;
   cursor: pointer;
-}
+} */
