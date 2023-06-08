@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import './styles.css';
+import React, { useEffect, useState } from 'react'  
 
 const TicTacToe = () => {
-  const emptyBoard = Array(9).fill("");
-  const [board, setBoard] = useState(emptyBoard);
-  const [currentPlayer, setCurrentPlayer] = useState('O');
-  const [winner, setWinner] = useState(null);
+  const emptyBoard = Array(9).fill("") 
+  const [board, setBoard] = useState(emptyBoard) 
+  const [currentPlayer, setCurrentPlayer] = useState('O') 
+  const [winner, setWinner] = useState(null) 
 
   const handleCellClick = (index) => {
-    if(winner) return;
-    if(board[index] !== '') return;
-    setBoard(board.map((item, itemIndex) => itemIndex === index ? currentPlayer : item));
+    if(winner) return 
+    if(board[index] !== '') return 
+    setBoard(board.map((item, itemIndex) => itemIndex === index ? currentPlayer : item)) 
 
-    setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+    setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X') 
   }
 
   const checkWinner = () => {
@@ -27,38 +26,42 @@ const TicTacToe = () => {
 
       [board[0], board[4], board[8]],
       [board[2], board[4], board[6]]
-    ];
+    ] 
 
     possibleWaysToWin.forEach(cells =>  {
-      if(cells.every(cell => cell === 'O')) setWinner('O');
-      if(cells.every(cell => cell === 'X')) setWinner('X');
-    });
+      if(cells.every(cell => cell === 'O')) setWinner('O') 
+      if(cells.every(cell => cell === 'X')) setWinner('X') 
+    }) 
 
-    checkDraw();
+    checkDraw() 
   }
 
   const checkDraw = () => {
-    if(board.every(item => item !== '')) setWinner('E');
+    if(board.every(item => item !== '')) setWinner('E') 
   }
 
-  useEffect(checkWinner, [board]);
+  useEffect(checkWinner, [board]) 
 
   const resetGame = () => {
-    setCurrentPlayer('O');
-    setBoard(emptyBoard);
-    setWinner(null);
+    setCurrentPlayer('O') 
+    setBoard(emptyBoard) 
+    setWinner(null) 
   }
 
   return(
-    <main>
-      <h1 className='title'>Jogo da Velha</h1>
+    <main className='flex flex-col justify-center items-center w-screen'>
+      <h1 className='text-4xl my-8'>Jogo da Velha</h1>
 
-      <div className={`board ${winner ? 'game-over' : ''}`}>
+      <div 
+        className={`grid gap-2 grid-cols-3 grid-rows-3 ${winner ? 'game-over' : ''}`}
+      >
         {
           board.map((item, index) => (
             <div 
               key={index}
-              className={`cell ${item}`}
+              className={`flex justify-center items-center bg-white 
+              w-28 h-28 rounded-lg font-black text-lg hover:cursor-pointer 
+              ${ item === 'O' && 'bg-blue-400' || item === 'X' && 'bg-red-400' }`}
               onClick={() => handleCellClick(index)}
             >
               {item}
@@ -68,23 +71,33 @@ const TicTacToe = () => {
       </div>
 
       { winner &&
-        <footer>
+        <footer className='text-center'>
           {
             winner === 'E' 
             ?
-              <h2 className='winner-message'>
+              <h2 className='m-8'>
                 <span className={winner}>Empatou!</span>
               </h2>
             :
-              <h2 className='winner-message'>
-                <span className={winner}>{winner}</span> Venceu!
+              <h2 className='m-8'>
+                <span 
+                  className={`p-2 mr-2 rounded-full ${winner === 'O' ? 'bg-blue-400' : 'bg-red-400' }`}
+                >
+                  {winner}
+                </span> 
+                Venceu!
               </h2>
           }
-          <button onClick={resetGame}>Recomeçar o Jogo!</button>
+          <button 
+            className='bg-black text-white p-2 rounded-lg hover:bg-slate-600'
+            onClick={resetGame}
+          >
+            Recomeçar o Jogo!
+          </button>
         </footer>
       }
     </main>
-  );
+  ) 
 }
 
-export default TicTacToe;
+export default TicTacToe 
