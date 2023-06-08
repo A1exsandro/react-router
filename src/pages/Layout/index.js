@@ -36,7 +36,7 @@ const Layout = () => {
       
       <div className={` ${none ? "" : "hidden"} bg-black text-white`}>
 
-        <div className="flex flex-col w-1/6 p-2">
+        <div className="flex flex-col w-1/3 p-2">
           <div 
             onClick={toggleMenu} 
             className="hover:bg-slate-500 hover:cursor-pointer 

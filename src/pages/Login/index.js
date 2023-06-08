@@ -60,24 +60,43 @@ const Login = () => {
     // ...
   })
 
-	return (
-		<>
-			<div>Login</div>
-      <div className="container">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label>
-            E-mail
-            <input {...register("email")} />
-          </label>
-          <label>
-            Password
-            <input type="password"{...register("password")} />
-          </label>
-          <input type="submit" />
-        </form>
-				<button onClick={loginWithGoogle}>Login With Google</button>
-      </div>
-    </>
+	return ( 
+    <div className="flex flex-col items-center justify-center mt-10">
+      <form 
+        className="flex flex-col w-80 text-white bg-black p-4 rounded-lg"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <label className="flex flex-col items-center mb-2">
+          E-mail
+          <input 
+          className="rounded-md text-black w-full pl-2"
+            {...register("email")} 
+          />
+        </label>
+
+        <label className="flex flex-col items-center mb-2">
+          Password
+          <input 
+            className="rounded-md text-black w-full pl-2"
+            type="password"
+            {...register("password")} 
+          />
+        </label>
+
+        <input 
+          className="hover:bg-slate-500 bg-slate-600 
+          hover:cursor-pointer my-2 rounded-md"
+          type="submit" 
+        />
+      </form>
+
+      <button 
+        className="bg-black w-80 hover:bg-slate-500 rounded-lg mt-4 text-white py-3"
+        onClick={loginWithGoogle}
+      >
+        Login With Google
+      </button>
+    </div> 
 	)
 }
 
