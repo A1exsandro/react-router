@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import CardList from "../../components/CardList" 
 import Header from "../../components/Header"
-import Players from "../../components/Players"
-import { ContainerWords } from "./styles"
+import Players from "../../components/Players" 
 
 import { getStorage } from '../../services/Firebase'
 import { ref, getDownloadURL } from "firebase/storage" 
@@ -72,11 +71,11 @@ const Words = () => {
   }  
  
   return (
-    <ContainerWords>
+    <div className="flex flex-col items-center">
       <Header />
       <Players />
       <CardList />
-    </ContainerWords>
+    </div>
   )
 }
 
