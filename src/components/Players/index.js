@@ -1,21 +1,22 @@
-import { useMemory } from "../../contexts/MemoryContext"
-import { ContainerPlayers, ShowPlayers } from "./styles"
+import { useMemory } from "../../contexts/MemoryContext" 
 
 const Players = () => {
 	const { players } = useMemory()
 
 	return (
-		<ContainerPlayers>
+		<div
+      className="flex justify-around items-center bg-slate-700 text-white w-full"
+    >
       {
         players.map((player, i) => 
-          <ShowPlayers
+          <div
             key={i} 
           >
             {player.name} : {player.score}
-          </ShowPlayers>
+          </div>
         )
       }
-    </ContainerPlayers>
+    </div>
 	)
 }
 
