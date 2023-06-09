@@ -25,15 +25,11 @@ const CardList = () => {
     };
   
     setNewCards(shuffleCards(cards));
-  }, [cards]); 
-
- console.log('newCards', newCards)
+  }, [cards]);  
 
  const handleClick = () => {
   setLoading(false)
-}
-
-console.log('cards', cards)
+} 
 
   return (
     loading ? (

@@ -1,18 +1,20 @@
 import { useMemory } from "../../contexts/MemoryContext" 
 
 const Players = () => {
-	const { players } = useMemory()
+	const { players, currentPlayerIndex } = useMemory() 
 
 	return (
 		<div
       className="flex justify-around items-center bg-slate-700 text-white w-full"
     >
       {
-        players.map((player, i) => 
+        players.map((player, i) =>  
           <div
+            className={`${players[currentPlayerIndex].name === player.name && 
+              'text-green-500'}`} 
             key={i} 
           >
-            {player.name} : {player.score}
+            {player.name} : {player.score} 
           </div>
         )
       }
