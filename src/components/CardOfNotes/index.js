@@ -5,9 +5,8 @@ const CardOfNotes = ({ front, back}) => {
 
   const handleFlip = () => {
     setFlipped(!flipped)
-  } 
-
-
+  }  
+  
   return (
     <div 
       className={`card-memory ${flipped ? "" : "flipped"}`} 

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useMemory } from "../../contexts/MemoryContext" 
 import Card from "../Card"
-import CardTwo from "../Card/CardTwo"  
-import { CardListContainer } from "./styles"
+import CardTwo from "../Card/CardTwo"   
 
 const CardList = () => { 
   const { cards, loading, setLoading } = useMemory() 
@@ -40,7 +39,9 @@ console.log('cards', cards)
     loading ? (
       <button onClick={handleClick}>Iniciar o Jogo</button> 
     ) : (
-      <CardListContainer> 
+      <div
+        className="flex flex-wrap justify-center gap-2 p-2"
+      > 
         {newCards.map((card) => (
           <Card key={card.id} {...card} /> 
         ))}
@@ -48,7 +49,7 @@ console.log('cards', cards)
         {newCards.map((card) => ( 
             <CardTwo key={card.id2} {...card} />
           ))} 
-      </CardListContainer>
+      </div>
     )
   );
 };
