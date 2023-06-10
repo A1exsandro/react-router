@@ -12,9 +12,9 @@ const TicTacToe = () => {
     setBoard(board.map((item, itemIndex) => itemIndex === index ? currentPlayer : item)) 
 
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X') 
-  }
+  } 
 
-  const checkWinner = () => {
+  useEffect(() => {  
     const possibleWaysToWin = [
       [board[0], board[1], board[2]],
       [board[3], board[4], board[5]],
@@ -33,14 +33,14 @@ const TicTacToe = () => {
       if(cells.every(cell => cell === 'X')) setWinner('X') 
     }) 
 
+    const checkDraw = () => {
+      if(board.every(item => item !== '')) setWinner('E') 
+    }
+
+      
     checkDraw() 
-  }
-
-  const checkDraw = () => {
-    if(board.every(item => item !== '')) setWinner('E') 
-  }
-
-  useEffect(checkWinner, [board]) 
+   
+  }, [board]) 
 
   const resetGame = () => {
     setCurrentPlayer('O') 
@@ -59,9 +59,9 @@ const TicTacToe = () => {
           board.map((item, index) => (
             <div 
               key={index}
-              className={`flex justify-center items-center bg-white 
+              className={`flex justify-center items-center  
               w-28 h-28 rounded-lg font-black text-lg hover:cursor-pointer 
-              ${ item === 'O' && 'bg-blue-400' || item === 'X' && 'bg-red-400' }`}
+              ${ item === 'O' ? 'bg-blue-400' : (item === 'X' ? 'bg-red-400' : 'bg-white')}`}
               onClick={() => handleCellClick(index)}
             >
               {item}
