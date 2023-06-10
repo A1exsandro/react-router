@@ -4,8 +4,8 @@ import { useMemory } from "../../contexts/MemoryContext"
 import './styles.css'
 
 const Card = ({ id, nameImg, linkImg, linkSound }) => {
-  const { showCard, idFoundCards, idFoundPairsCards, players, currentPlayerIndex} = useMemory() 
-	const [hovered, setHovered] = useState(false)
+  const { showCard, idFoundCards, idFoundPairsCards } = useMemory() 
+	const [  setHovered] = useState(false)
   const audioRef = useRef()
 
   const flipped = idFoundCards.includes(id) || idFoundPairsCards.includes(nameImg)

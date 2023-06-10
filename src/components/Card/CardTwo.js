@@ -5,7 +5,7 @@ import './styles.css'
 
 const CardTwo = ({ id2, nameImg, linkSound }) => {
   const { showCard, idFoundCards, idFoundPairsCards } = useMemory() 
-	const [hovered, setHovered] = useState(false)
+	const [ setHovered] = useState(false)
   const audioRef = useRef(null)
   
   const id = id2

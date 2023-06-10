@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Login from '../pages/Login'
 const { createContext, useContext, useState } = require("react")
 

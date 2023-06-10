@@ -6,7 +6,7 @@ const Notes = () => {
   const [showForm, setShowForm] = useState(false) 
   const [addNotes, setAddNotes] = useState([ ]) 
 
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit } = useForm()
   
   const handleClick = () => {
     setShowForm(true)
